@@ -15,11 +15,15 @@
     <!-- Bootstrap CSS -->
     {% block corecss %}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
     {% endblock %}
     {% block extra_css %}
-    <link rel="stylesheet" href="static/css/base.css" type="text/css" media="">
-    <link rel="stylesheet" href="static/css/bootstrap.css" type="text/css" media="">
+
       {% endblock %}
 
     {% block corejs %}
@@ -27,41 +31,200 @@
     src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous"></script>
+      <script src="{% static 'js/base.js' %}"></script>
+      <script src="https://kit.fontawesome.com/dc9cbb3e71.js" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      
       {% endblock %}
       {% block extra_js %}
       {% endblock %}
     <title>VIBEHOUSE {% block extra_title %}{% endblock %}</title>
   </head>
   <body>
-    <header class="container-fluid fixed-top">
-        <div class="row">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="logo-font text-black my-0"><strong>VIBEHOUSE</strong></h2></a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="">
-                    <div class="input-group w-100">
-                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search your vibe">
-                        <div class ="input-group append">
-                            <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+        <div class="overlay"></div>
 
-                            </button>
-                        </div>
-                    </div>
-                </form>
+        <div class="utility-nav d-none d-md-block">
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <p class="small"><i class="bx bx-envelope"></i> support@vibehouse.com | <i class="bx bx-phone"></i> +18137786543
+                </p>
+              </div>
+        
+              <div class="col-12 col-md-6 text-right">
+                <p class="small">Free Next Day Delivery On Orders Over £50 in the UK</p>
+              </div>
             </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
-                    <li class="list-inline-item dropdown"></li>
-                    <li class="list-inline-item"></li>
-                </ul>
-            </div>
+          </div>
         </div>
-
-    </header>
+        
+        <nav class="navbar navbar-expand-md navbar-light bg-light main-menu" style="box-shadow:none">
+          <div class="container">
+        
+            <button type="button" id="sidebarCollapse" class="btn btn-link d-block d-md-none">
+                        <i class="bx bx-menu icon-single"></i>
+                    </button>
+        
+            <a class="navbar-brand" href="#">
+              <h4 class="font-weight-bold">VIBEHOUSE</h4>
+            </a>
+        
+            <ul class="navbar-nav ml-auto d-block d-md-none">
+              <li class="nav-item">
+                <a class="btn btn-link" href="#"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
+              </li>
+            </ul>
+        
+            <div class="collapse navbar-collapse">
+              <form class="form-inline my-2 my-lg-0 mx-auto">
+                <input class="form-control" type="search" placeholder="Search for products..." aria-label="Search">
+                <button class="btn btn-success my-2 my-sm-0" type="submit"><i class="bx bx-search"></i></button>
+              </form>
+        
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="btn btn-link" href="#"><i class="bx bxs-cart icon-single"></i> <span class="badge badge-danger">3</span></a>
+                </li>
+                <li class="nav-item ml-md-3">
+                  <a class="btn btn-primary" href="#"><i class="bx bxs-user-circle mr-1"></i> Log In / Register</a>
+                </li>
+              </ul>
+            </div>
+        
+          </div>
+        </nav>
+        
+        <nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
+          <div class="container">
+            <div class="collapse navbar-collapse" id="navbar">
+              <ul class="navbar-nav mx-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Products</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Schools</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Publishers</a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Support
+                                </a>
+                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Delivery Information</a>
+                    <a class="dropdown-item" href="#">Privacy Policy</a>
+                    <a class="dropdown-item" href="#">Terms & Conditions</a>
+                  </div>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Contact</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="search-bar d-block d-md-none">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <form class="form-inline mb-3 mx-auto">
+                  <input class="form-control" type="search" placeholder="Search for products..." aria-label="Search">
+                  <button class="btn btn-success" type="submit"><i class="bx bx-search"></i></button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Sidebar -->
+        <nav id="sidebar">
+          <div class="sidebar-header">
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-10 pl-0">
+                  <a class="btn btn-primary" href="#"><i class="bx bxs-user-circle mr-1"></i> Log In</a>
+                </div>
+        
+                <div class="col-2 text-left">
+                  <button type="button" id="sidebarCollapseX" class="btn btn-link">
+                                    <i class="bx bx-x icon-single"></i>
+                                </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        
+          <ul class="list-unstyled components links">
+            <li class="active">
+              <a href="#"><i class="bx bx-home mr-3"></i> Home</a>
+            </li>
+            <li>
+              <a href="#"><i class="bx bx-carousel mr-3"></i> Products</a>
+            </li>
+            <li>
+              <a href="#"><i class="bx bx-book-open mr-3"></i> Schools</a>
+            </li>
+            <li>
+              <a href="#"><i class="bx bx-crown mr-3"></i> Publishers</a>
+            </li>
+            <li>
+              <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="bx bx-help-circle mr-3"></i>
+                            Support</a>
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+                  <a href="#">Delivery Information</a>
+                </li>
+                <li>
+                  <a href="#">Privacy Policy</a>
+                </li>
+                <li>
+                  <a href="#">Terms & Conditions</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"><i class="bx bx-phone mr-3"></i> Contact</a>
+            </li>
+          </ul>
+        
+          <h6 class="text-uppercase mb-1">Categories</h6>
+          <ul class="list-unstyled components mb-3">
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+            <li>
+              <a href="#">Category 1</a>
+            </li>
+          </ul>
+        
+          <ul class="social-icons">
+            <li><a href="#" target="_blank" title=""><i class="bx bxl-facebook-square"></i></a></li>
+            <li><a href="#" target="_blank" title=""><i class="bx bxl-twitter"></i></a></li>
+            <li><a href="#" target="_blank" title=""><i class="bx bxl-linkedin"></i></a></li>
+            <li><a href="#" target="_blank" title=""><i class="bx bxl-instagram"></i></a></li>
+          </ul>
+        
+        </nav>
+        
+   
     {% if messages %}
    <div class="message-container"></div>
     {% endif %}
