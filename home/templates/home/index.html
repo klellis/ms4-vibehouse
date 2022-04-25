@@ -1,7 +1,64 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block page_header %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
 
 {% block content %}
-<h1 class="display-4 text-success"> It works! </h1>
+<!-- slider -->
+<section id="slider_area" class="text-center">
+    <div class="slider_active owl-carousel">
+        <div class="single_slide" style="background-image: url(img/slider/1.jpg); background-size: cover; background-position: center;">
+            <div class="container">	
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content text-left slider-animated-1">						
+                            <p class="animated">The New Collection Has Arrived</p>
+                            <h1 class="animated">Shop The Latest Drop!</h1>
+                            <h4 class="animated">The Zodiac Collection</h4>
+                            <a href="#" class="btn main_btn animated">shop now</a>
+                        </div>
+                    </div>
+                </div>						
+            </div>
+        </div>
+        
+        <div class="single_slide" style="background-image: url(img/slider/2.jpg); background-size: cover; background-position: center ;">
+            <div class="container">		
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content text-center slider-animated-2">						
+                            <p class="animated">Bringing You The Vibes</p>
+                            <h1 class="animated">Most Popular</h1>
+                            <h4 class="animated">What's Your Vibe?</h4>
+                            <a href="#" class="btn main_btn animated">shop now</a>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+        </div>
+        
+        <div class="single_slide" style="background-image: url(img/slider/3.jpg); background-size: cover; background-position: center ;">
+            <div class="container">
+                <div class="single-slide-item-table">
+                    <div class="single-slide-item-tablecell">
+                        <div class="slider_content text-right slider-animated-3">						
+                            <p class="animated">Men Collection</p>
+                            <h1 class="animated">popular style</h1>
+                            <h4 class="animated">Big Sale of This Week 50% off</h4>
+                            <a href="#" class="btn main_btn animated">shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Slider -->		
 {% endblock %}
