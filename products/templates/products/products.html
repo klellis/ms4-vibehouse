@@ -72,9 +72,13 @@
                             
                             <div class="product_image">
                                 {% if product.image %}
+                                <a href="{% url 'product_details' product.id %}">
                                 <img src="{{ product.image.url }}" alt="{{ product.name }}"/>
+                                </a>
                                 {% else %}
+                                <a href="{% url 'product_details' product.id %}">
                                 <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"/>
+                                </a>
                                 {% endif %}
                                 <div class="box-content">
                                     <a href="#"><i class="fa fa-heart-o"></i></a>
@@ -83,8 +87,15 @@
                                 </div>										
                             </div>
                             <div class="product_btm_text">
-                                <h4><a href="#">{{ product.name }}</a></h4>
+                                <p>
+                                <h4><a href="#">{{ product.name }}</a></h4> <br>
+                                {% if product.rating %}
+                                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating}} / 5 </small> <br>
+                                {% else %}
+                                <small class="text-muted">No Ratings Yet</small> <br>
+                                {% endif %}
                                 <span class="price">£{{ product.price }}</span>
+                                </p>
                             </div> 
                         </div>								
                     </div> <!-- End Col -->			

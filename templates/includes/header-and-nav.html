@@ -90,15 +90,15 @@
     <div class="collapse navbar-collapse" id="navbar">
       <ul class="navbar-nav mx-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only"></span></a>
         </li>
         <li class="nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <a class="nav-link" href="#">All Products</a>
+          <a class="nav-link" href="{% url 'products' %}">All Products</a>
           <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
             <a href="" class="dropdown-item">By Price</a>
             <a href="" class="dropdown-item ">By Rating</a>
             <a href="" class="dropdown-item ">By Category</a>
-            <a href="" class="dropdown-item">All Products</a>
+            <a href="{% url 'products' %}" class="dropdown-item">All Products</a>
         </div>
         </li>
         <li class="nav-item dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -182,10 +182,10 @@
 
   <ul class="list-unstyled components links">
     <li class="active">
-      <a href="#"><i class="bx bx-home mr-3"></i> Home</a>
+      <a href="{% url 'home' %}"><i class="bx bx-home mr-3"></i> Home</a>
     </li>
     <li>
-      <a href="#"><i class="bx bx-carousel mr-3"></i>All Products</a>
+      <a href="{% url 'products' %}"><i class="bx bx-carousel mr-3"></i>All Products</a>
     </li>
     <li>
       <a href="#"><i class="bx bx-book-open mr-3"></i>Collections</a>
