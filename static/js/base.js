@@ -126,3 +126,6 @@ $(document).ready(function() {
     });
   });
   
+
+  // jQuery MixItUp
+	$('.product_item').mixItUp();
