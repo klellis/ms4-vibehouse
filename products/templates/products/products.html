@@ -65,153 +65,33 @@
             </div>	
                 
             <div class="shop_details text-center">
-                <div class="row">				
+                <div class="row">					
+                    {% for product in products %}
                     <div class="col-md-3 col-sm-6">
                         <div class="single_product">
+                            
                             <div class="product_image">
-                                <img src="img/product/1.jpg" alt=""/>
+                                {% if product.image %}
+                                <img src="{{ product.image.url }}" alt="{{ product.name }}"/>
+                                {% else %}
+                                <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}"/>
+                                {% endif %}
                                 <div class="box-content">
                                     <a href="#"><i class="fa fa-heart-o"></i></a>
                                     <a href="#"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-search"></i></a>
                                 </div>										
                             </div>
-
                             <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
+                                <h4><a href="#">{{ product.name }}</a></h4>
+                                <span class="price">£{{ product.price }}</span>
+                            </div> 
                         </div>								
-                    </div> <!-- End Col -->						
+                    </div> <!-- End Col -->			
+                    {% endfor %}		
 
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/2.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->					
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/3.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->						
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/4.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->						
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/5.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->					
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/6.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->						
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/7.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->						
-
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single_product">
-                            <div class="product_image">
-                                <img src="img/product/8.jpg" alt=""/>
-                                <div class="box-content">
-                                    <a href="#"><i class="fa fa-heart-o"></i></a>
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                    <a href="#"><i class="fa fa-search"></i></a>
-                                </div>										
-                            </div>
-
-                            <div class="product_btm_text">
-                                <h4><a href="#">Product Title</a></h4>
-                                <span class="price">$123.00</span>
-                            </div>
-                        </div>								
-                    </div> <!-- End Col -->						
-                                                
-                </div>
-            </div>
+                     
+               
                 
             <!-- Blog Pagination -->
             <div class="col-xs-12">
