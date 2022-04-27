@@ -85,29 +85,31 @@
   </div>
 </nav>
 
-<nav class="navbar navbar-expand-md navbar-light bg-light sub-menu">
-  <div class="container">
-    <div class="collapse navbar-collapse" id="navbar">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item" data-toggle="" aria-haspopup="true" aria-expanded="false">
-          <a class="nav-link" href="{% url 'products' %}">All Products</a>
-        </li>
-        <li class="nav-item" data-toggle="" aria-haspopup="true" aria-expanded="false">
-          <a class="nav-link" href="#">Collections</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">The Vibe Box</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
-        </li>
-      </ul>
-    </div>
+<nav class="navbar navbar-expand-md navbar-light bg-light mega-menu">
+  <div class=container>
+    <div class="navbar-collapse product_dropdown" id="navbar">
+  <li class="dropdown nav-item">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h3>All Products <i class="fa-solid fa-angle-down"></i></h3></a>
+    <ul class="dropdown-menu mx-auto">
+      <li class="nav-item"><a href="{% url 'products' %}">All Products</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?category=shirts">Shirts</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?category=hood_sweat">Hoodies/Sweatshirts</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?category=accessories">Accessories</a></li>
+      <li class="nav-item"> <a href="{% url 'products' %}?category=jewellery">Jewellery</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?category=home">Home</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?category=gifts">Gifts</a></li>
+    </ul>
+  </li>
   </div>
-</nav>
+  </div>
+  </nav>
+  
+
+   				
+
+  											
+
+
 
 <div class="search-bar d-block d-md-none">
   <div class="container">

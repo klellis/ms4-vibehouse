@@ -951,3 +951,8 @@
   .fix {
     overflow: hidden;
   }
+
+  .product_dropdown {
+    list-style: none;
+    text-decoration: none;
+  }
