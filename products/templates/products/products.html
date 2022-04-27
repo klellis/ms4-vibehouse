@@ -41,12 +41,13 @@
                 <div class="row">
                     <div class="col-sm-6 col-xs-12 short_by_area">
                         <div class="short_by_inner">
-                            <label>short by:</label>
-                            <select class="sort-select">
-                                <option>Name Descending</option>
-                                <option>Date Descending</option>
-                                <option>Price Descending</option>
-                            </select>
+                            <label>sort by:</label>
+                            <ul class="sort-select">
+                                <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=desc">Price High - Low</a></li>
+                                <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=asc">Price Low - High</a></li>
+                                <li class="nav-item"><a href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
+                                <li class="nav-item"><a href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
+                            </ul>
                         </div>
                     </div>
 

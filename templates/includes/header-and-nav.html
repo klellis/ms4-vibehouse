@@ -89,7 +89,7 @@
   <div class=container>
     <div class="navbar-collapse product_dropdown" id="navbar">
   <li class="dropdown nav-item">
-    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h3>All Products <i class="fa-solid fa-angle-down"></i></h3></a>
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h3>SHOP</h3></a>
     <ul class="dropdown-menu mx-auto">
       <li class="nav-item"><a href="{% url 'products' %}">All Products</a></li>
       <li class="nav-item"><a href="{% url 'products' %}?category=Shirts">Shirts</a></li>
@@ -99,6 +99,19 @@
       <li class="nav-item"><a href="{% url 'products' %}?category=Home">Home</a></li>
       <li class="nav-item"><a href="{% url 'products' %}?category=Gifts">Gifts</a></li>
     </ul>
+  </li>
+  </div>
+  </div>
+
+  <div class=container>
+    <div class="navbar-collapse product_dropdown" id="navbar">
+  <li class="dropdown nav-item">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><h3>Sort Poducts <i class="fa-solid fa-angle-down"></i></h3></a>
+    <ul class="dropdown-menu mx-auto">
+      <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=desc">Price High - Low</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=asc">Price Low - High</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
+      <li class="nav-item"><a href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
   </li>
   </div>
   </div>
