@@ -1,3 +1,21 @@
+$(window).scroll(function() {
+		
+    if ($(this).scrollTop() > 100) {
+      $('#header').addClass('menu-shrink');
+    } else {
+      $('#header').removeClass('menu-shrink');
+    }
+  });
+  
+  $('a').on('click', function(e){
+      var anchor = $(this);
+      $('html, body').stop().animate({
+          scrollTop: $(anchor.attr('href')).offset().top - 50
+      }, 1500);
+      e.preventDefault();
+  });
+      
+
 $(function() {
     "use strict";
     
