@@ -21,9 +21,11 @@
 
             <div class="col-sm-6 text-right">
                 <ul class="p_items">
-                    <li><a href="#">home</a></li>
-                    <li><a href="#">category</a></li>
-                    <li><span>Product Title</span></li>
+                    <li><a href="{% url 'home' %}">home</a></li>
+                    {% if product.category %}
+                    <li><a href="{% url 'products' %}?category={{ product.category.name }}">{{ product.category }}</a></li>
+                    {% endif %}
+                    <li><span>{{ product.name }}</span></li>
                 </ul>					
             </div>	
                 
@@ -74,6 +76,11 @@
                     <div class="pd_text">
                         <h4>overview:</h4>
                         <p>{{ product.description }}</p>
+                        {% if product.category %}
+                                               <small> <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
+                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.name }}
+                                                </a> </small> <br>
+                                            {% endif %}
                     </div>
                     <div class="pd_img_size fix">
                         <h4>size:</h4>

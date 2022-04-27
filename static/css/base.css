@@ -305,12 +305,16 @@
   }
   
   .utility-nav {
-    background: #e4e4e4;
+    background: #FEAC5E;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4BC0C8, #C779D0, #FEAC5E); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
     padding: 0.5rem 1rem;
   }
   
   .utility-nav p {
     margin-bottom: 0;
+    
   }
   
   .search-bar {
@@ -409,11 +413,11 @@
   #page_item_area {
     padding: 45px 0;
     margin-bottom: 40px;
-    background: linear-gradient(45deg, #43cea2 0%, #33d286 100%);
+    background: linear-gradient(45deg, #C779D0 0%,#FEAC5E 100%);
   }
   .p_items li {
     display: inline-block;
-    font-size: 12px;
+    font-size: 0.rem;
     font-weight: 500;
     margin-right: 12px;
     text-transform: uppercase;
@@ -535,7 +539,7 @@
       transition: all 0.6s ease 0s;
     overflow: hidden;
     opacity: 0;
-    background: rgba(51, 210, 134, .9);
+    background: #4BC0C8;
     
   }
   .single_product:hover .box-content{
@@ -556,7 +560,7 @@
     transition:.5s;
   }
   .box-content a:hover {
-    color: #33d286;
+    color: #4BC0C8;
     border-color: #fff;
   }
   
