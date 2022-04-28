@@ -82,16 +82,21 @@
                                                 </a> </small> <br>
                                             {% endif %}
                     </div>
-                    <div class="pd_img_size fix">
-                        <h4>size:</h4>
-                        <a href="#">s</a>
-                        <a href="#">m</a>
-                        <a href="#">l</a>
-                        <a href="#">xl</a>
-                        <a href="#">xxl</a>
-                    </div>
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
+                    <div class="pd_img_size fix">
+                        {% with product.has_sizes as sizes %}
+                        {% if sizes %}
+                        <h4>size:</h4>
+                        <input class="btn btn-default acc_btn btn_icn" type="submit" value="xs">
+                        <input class="btn btn-default acc_btn btn_icn" type="submit" value="s">
+                        <input class="btn btn-default acc_btn btn_icn" type="submit" value="m">
+                        <input class="btn btn-default acc_btn btn_icn" type="submit" value="l">
+                        <input class="btn btn-default acc_btn btn_icn" type="submit" value="xl">
+                        {% endif %}
+                    </div>
+                    
+                        
                     <div class="pd_clr_qntty_dtls fix">
                         <div class="pd_qntty_area">
                             <h4>quantity:</h4>
@@ -106,6 +111,7 @@
                         <a class="btn btn-default acc_btn btn_icn"><i class="fa fa-heart"></i></a>
                         <a class="btn btn-default acc_btn btn_icn"><i class="fa fa-refresh"></i></a>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        {% endwith %}
                     </div>
                     
                 </form>

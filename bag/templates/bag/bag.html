@@ -43,6 +43,7 @@
                                 <th class="cpt_no">image</th>
                                 <th class="cpt_img">name</th>
                                 <th class="cpt_pn">qty</th>
+                                <th class="cpt_pn">size</th>
                                 <th class="cpt_q">price</th>
                                 <th class="cpt_p">sku</th>
                                 <th class="cpt_t">total</th>
@@ -55,6 +56,7 @@
                                 <td><a href="#" class="cp_img"><img class="bagimg" src="{{ item.product.image.url }}" alt="" /></a></td>
                                 <td><a href="#" class="cp_title">{{ item.product.name }}</a></td>
                                 <td><a href="#" class="cp_title">{{ item.quantity}}</a></td>
+                                <td><a href="#" class="cp_title">{{ item.size}}</a></td>
                                 <td><p class="cp_price">£{{ item.product.price }}</td>
                                 <td><p class="cpp_total">{{ item.product.sku }}</p></td>
                                 <td><a class="btn btn-default cp_remove"><i class="fa fa-trash"></i></a></td>

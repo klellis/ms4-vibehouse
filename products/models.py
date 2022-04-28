@@ -28,6 +28,7 @@ class Products(models.Model):
     image = models.ImageField(null=True, blank=True)
     sku = models.CharField(max_length=30, null=True, blank=True)
     collection = models.CharField(max_length=70, null=True, blank=True)
+    has_sizes = models.BooleanField(default=False, null=True, blank=True)
     
     
     def __str__(self):
