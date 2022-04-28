@@ -1,4 +1,4 @@
-from django.shortcuts import render, reverse, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -42,7 +42,7 @@ def all_products(request):
             query = request.GET['q']
             if not query:
                 messages.error(request, "Ooops! Looks like you didn't enter anything.")
-                return redirect(reverse('products'))
+                return redirect('products')
             
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)

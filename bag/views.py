@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+from django.contrib import messages
+from products.models import Products
 
 # Create your views here.
 def view_bag(request):
@@ -32,3 +34,28 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+def remove_bag_item(request, item_id):
+    # Remove item from bag
+
+    try:
+        product = get_object_or_404(Products, pk=item_id)
+        size = None
+        if 'product_size' in request.POST:
+            size = request.POST['product_size']
+        bag = request.session.get('bag', {})
+
+        if size:
+            del bag[item_id]['items_by_size'][size]
+            if not bag[item_id]['items_by_size']:
+                bag.pop(item_id)
+        else:
+            bag.pop(item_id)
+            messages.success(request, f'Removed {product.name} from bag')
+
+        request.session['bag'] = bag
+        return redirect('view_bag')
+
+    except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
+        return HttpResponse(status=500)

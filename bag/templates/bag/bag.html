@@ -55,11 +55,11 @@
                             <tr>
                                 <td><a href="#" class="cp_img"><img class="bagimg" src="{{ item.product.image.url }}" alt="" /></a></td>
                                 <td><a href="#" class="cp_title">{{ item.product.name }}</a></td>
-                                <td><a href="#" class="cp_title">{{ item.quantity}}</a></td>
+                                <td><a href="#" class="cp_title">{{ item.quantity }}</a></td>
                                 <td><a href="#" class="cp_title">{% if item.product.has_sizes %}{{ item.size }}{% else %}N/A{% endif %}</a></td>
                                 <td><p class="cp_price">£{{ item.product.price }}</td>
                                 <td><p class="cpp_total">{{ item.product.sku }}</p></td>
-                                <td><a class="btn btn-default cp_remove"><i class="fa fa-trash"></i></a></td>
+                                <td><a href="{% url 'remove_bag_item' item.product.id %}"class="btn btn-default cp_remove"><i class="fa fa-trash"></i></a></td>
 
                             </tr>
                             {% endfor %}
