@@ -36,69 +36,37 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="title">
-                    <h3>Billing Details</h3>
+                    <h3>Details</h3>
                 </div>
-                <form class="checkout_form" action="#" method="post">
+                <form class="checkout_form" action="{% url 'checkout' %}" method="POST" id="payment-form">
+                    {% csrf_token %}
                     <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input name="first_name" placeholder="First name" class="form-control" type="text">
-                        </div>
-                        
-                         <div class="form-group col-md-6">								
-                            <input name="last_name" placeholder="Last name" class="form-control" type="text">
-                        </div>
-                    </div>
-                    
-                    <div class="form-group">      
-                          <input name="company_name" placeholder="Company name" class="form-control" type="text">                         
-                    </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group col-md-6">
-                            <input name="email" placeholder="Email address" class="form-control" type="email">
-                        </div>
-                   
-
-                        <div class="form-group col-md-6">
-                            <input name="phone" placeholder="Phone number" class="form-control" type="text">
-                        </div>
-                    </div>
-                        
-                    <div class="form-group">  
-                        <label for="country">Country:</label>
-                        <div class="custom-select-wrapper" >
-                            <select id="country" class="custom-select" >
-                                <option value="canada">Canada *</option>
-                                <option value="american">American</option>
-                                <option value="australia">Australia</option>
-                            </select>
-                        </div>
-                    </div>
-                    
-                    
-                    <div class="form-group">
-                        <label for="address">Address:</label>    
-                        <textarea rows="3" name="street" id="address" placeholder="Street address. Apartment, suite, unit etc. (optional)" class="form-control"></textarea>
-                    </div>
-                    
-                     <div class="form-row">
-                       <div class="form-group col-md-6">
-                            <input name="code" placeholder="Post code / Zip" class="form-control" type="text">
-                        </div>
-                        
-                         <div class="form-group col-md-6">
-                            <input name="city" placeholder="Town / City" class="form-control" type="text">
-                        </div>								
-                    </div>
-
-                    <div class="form-group">
-                        <label for="address">Order note:</label>    
-                        <textarea rows="3" name="street" placeholder="Order note" class="form-control"></textarea>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" id="customCheck1">
-                            <label class="custom-control-label" for="customCheck1">SHIP TO A DIFFERENT ADDRESS?</label>
-                        </div>                             
-                    </div>
+                        <fdiv class="col-md-6">
+                            <fieldset class="rounded px-3 mb-5"> 
+                                <legend class="fieldset-label small">Your Details</legend>
+                                {{ order_form.full_name | as_crispy_field }}
+                                {{ order_form.email | as_crispy_field }}
+                            </fieldset>
+                            <fieldset class="rounded px-3 mb-5"> 
+                                <legend class="fieldset-label small">Delivery Details</legend>
+                                {{ order_form.street_address1| as_crispy_field }}
+                                {{ order_form.street_address2| as_crispy_field }}
+                                {{ order_form.town_or_city| as_crispy_field }}
+                                {{ order_form.postcode| as_crispy_field }}
+                                <div class="form-check form-check-inline">
+                                    {% if user.us_authenticated %}
+                                        <label class="form-check-label" for="id-save-info">Save this information to profile</label>
+                                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
+                                    {% else %}
+                                    <label class="form-check-label" for="id-save-info">
+                                        <a class="text-info" href="{% url 'account_signup' %}">Create Account</a> or
+                                        <a class="text-info" href="{% url 'account_login' %}">Login</a> to save these details
+                                    </label>
+                                    {% endif %}
+                                </div>
+                            </fieldset>
+                            <fieldset class="px-3">
+                                <legend class=
                 </form>
             </div>
             
