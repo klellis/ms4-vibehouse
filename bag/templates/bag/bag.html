@@ -40,29 +40,27 @@
                     <table class="table bag_prdct_table text-center">
                         <thead>
                             <tr>
-                                <th class="cpt_no">No.</th>
-                                <th class="cpt_img">image</th>
-                                <th class="cpt_pn">product name</th>
-                                <th class="cpt_q">quantity</th>
-                                <th class="cpt_p">price</th>
+                                <th class="cpt_no">image</th>
+                                <th class="cpt_img">name</th>
+                                <th class="cpt_pn">qty</th>
+                                <th class="cpt_q">price</th>
+                                <th class="cpt_p">sku</th>
                                 <th class="cpt_t">total</th>
                                 <th class="cpt_r">remove</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% for item in bag_items %}
                             <tr>
-                                <td><span class="cp_no">1</span></td>
-                                <td><a href="#" class="cp_img"><img src="img/bag-prdct/1.jpg" alt="" /></a></td>
-                                <td><a href="#" class="cp_title">This is Product Title</a></td>
-                                <td>										
-                                    <div class="cp_quntty">																			
-                                        <input name="quantity" value="1" size="2" type="number">													
-                                    </div>
-                                </td>
-                                <td><p class="cp_price">/p></td>
-                                <td><p class="cpp_total"></p></td>
+                                <td><a href="#" class="cp_img"><img class="bagimg" src="{{ item.product.image.url }}" alt="" /></a></td>
+                                <td><a href="#" class="cp_title">{{ item.product.name }}</a></td>
+                                <td><a href="#" class="cp_title">{{ item.quantity}}</a></td>
+                                <td><p class="cp_price">£{{ item.product.price }}</td>
+                                <td><p class="cpp_total">{{ item.product.sku }}</p></td>
                                 <td><a class="btn btn-default cp_remove"><i class="fa fa-trash"></i></a></td>
+
                             </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -93,8 +91,14 @@
             
             <div class="col-md-4 col-xs-12 bag-checkout-process text-right">
                 <div class="wrap">
-                    <p><span>Subtotal</span><span>£</span></p>
-                    <h4><span>Grand total</span><span>£</span></h4>
+                    <p><span>Subtotal</span><span>£{{ total|floatformat:2 }}</span></p>
+                    <p><span>Delivery</span><span>£{{ delivery|floatformat:2 }}</span></p>
+                    <h4><span>Grand total</span><span>£{{ grand_total|floatformat:2 }}</span></h4>
+                    {% if free_delivery_increment > 0 %}
+                    <p class="mb-1 text-danger">
+                        Spend another <strong>£{{ free_delivery_increment }}</strong> to be eligible for free Next Day Delivery within the UK
+                    </p>
+                    {% endif %}
                     <a href="checkout.html" class="btn border-btn">process to checkout</a>
                 </div>
                 {% else %}
