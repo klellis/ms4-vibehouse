@@ -52,7 +52,7 @@
                     <div class="col-sm-6 col-xs-12 show_area">
                         <div class="show_inner">
                             <label>Sort:</label>
-                            <select class="show-select">
+                            <select id="sort-selector" class="show-select">
                                 <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort</option>
                                 <option value="price_asc" {% if sorting_by == 'price_asc' %}selected{% endif %}>Price Low to High</option>
                                 <option value="price_desc" {% if sorting_by == 'price_desc' %}selected{% endif %}>Price High to Low</option>
@@ -200,3 +200,29 @@
 
 
 {% endblock %}
+
+{% block postloadjs%}
+
+<script type="text/javascript">
+    $('#sort-selector').change(function() {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+
+        var selectedVal = selector.val();
+        if(selectedVal != "reset"){
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.set("sort");
+            currentUrl.searchParams.set("direction");
+
+            window.location.replace(currentUrl);
+        }
+    })
+    </script>
+    {% endblock %}
