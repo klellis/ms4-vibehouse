@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
+
 {% block page_header %}
 <div class="container">
     <div class="row">
@@ -32,16 +33,16 @@
 
 <!-- Checkout  -->
 <section class="checkout_page">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
+        
+            <div class="">
                 <div class="title">
                     <h3>Details</h3>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
                 <form class="checkout_form" action="{% url 'checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
-                    <div class="form-row">
-                        <fdiv class="col-md-6">
                             <fieldset class="rounded px-3 mb-5"> 
                                 <legend class="fieldset-label small">Your Details</legend>
                                 {{ order_form.full_name | as_crispy_field }}
@@ -53,7 +54,6 @@
                                 {{ order_form.street_address2| as_crispy_field }}
                                 {{ order_form.town_or_city| as_crispy_field }}
                                 {{ order_form.postcode| as_crispy_field }}
-                                <div class="form-check form-check-inline">
                                     {% if user.us_authenticated %}
                                         <label class="form-check-label" for="id-save-info">Save this information to profile</label>
                                         <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info" checked>
@@ -63,20 +63,22 @@
                                         <a class="text-info" href="{% url 'account_login' %}">Login</a> to save these details
                                     </label>
                                     {% endif %}
-                                </div>
-                            </fieldset>
+                                
+                                </fieldset>
                             <fieldset class="px-3">
-                                <legend class=
+                                <legend class="fieldset-label small">Payment Details</legend>
+                                <!-- STRIPE CARD ELEMENT-->
+                                <div class="" id="card-element" role="alert"></div>
+                                <!-- DISPLAYS FORM ERRORS-->
+                                <div class="text-danger" id="card-errors" role="alert"></div>
                 </form>
             </div>
             
-            
-            <div class="col-md-6">
+
+            <div class="col">
                 <div class="title">
                     <h3>your order</h3>
                 </div>
-                
-                <div class="your-order-table table-responsive">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -110,6 +112,11 @@
                         </tfoot>
                     </table>
                 </div>
+            </div>
+        </div>
+               
+            
+            
                 
                 <div class="payment_method">           
                     <ul>
