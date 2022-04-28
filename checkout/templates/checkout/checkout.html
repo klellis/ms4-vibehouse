@@ -102,14 +102,14 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th class="product-name">Product Name</th>
-                                <th class="product-total">Total</th>
                             </tr>
                         </thead>
                         <tbody>
                             {% for item in bag_items %}
                             <tr>
                                 <td class="product-name">{{ item.product.name }}</td>
+                                <td class="product-name">{{ item.quantity }}</td>
+                                <td class="product-name">{{ item.product.price }}</td>
                                 <td class="product-total"><span>£{{ item.product.price | calc_subtotal:item.quantity }}</span></td>
                                 <td class="product-total"><span>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</span></td>
                             </tr>
