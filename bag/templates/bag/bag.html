@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+
+<!-- Page item Area -->
+<div id="page_item_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6 text-left">
+                <h3>Shop Details</h3>
+            </div>		
+
+            <div class="col-sm-6 text-right">
+                <ul class="p_items">
+                    <li><a href="#">home</a></li>
+                    <li><span>Bag</span></li>
+                </ul>					
+            </div>	
+        </div>
+    </div>
+</div>
+
+<!-- bag Page -->
+<div class="bag_page_area">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                {% if bag_items %}
+                <div class="bag_table_area table-responsive">
+                    <table class="table bag_prdct_table text-center">
+                        <thead>
+                            <tr>
+                                <th class="cpt_no">No.</th>
+                                <th class="cpt_img">image</th>
+                                <th class="cpt_pn">product name</th>
+                                <th class="cpt_q">quantity</th>
+                                <th class="cpt_p">price</th>
+                                <th class="cpt_t">total</th>
+                                <th class="cpt_r">remove</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="cp_no">1</span></td>
+                                <td><a href="#" class="cp_img"><img src="img/bag-prdct/1.jpg" alt="" /></a></td>
+                                <td><a href="#" class="cp_title">This is Product Title</a></td>
+                                <td>										
+                                    <div class="cp_quntty">																			
+                                        <input name="quantity" value="1" size="2" type="number">													
+                                    </div>
+                                </td>
+                                <td><p class="cp_price">/p></td>
+                                <td><p class="cpp_total"></p></td>
+                                <td><a class="btn btn-default cp_remove"><i class="fa fa-trash"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-xs-12 bag-actions bag-button-cuppon">
+                <div class="row">
+                    <div class="col-sm-7">
+                        <div class="bag-action">
+                            <a href="#" class="btn border-btn">continiue shopping</a>
+                            <a href="#" class="btn border-btn">update shopping bag</a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-sm-5">
+                        <div class="cuppon-wrap">
+                            <h4>Discount Code</h4>
+                            <p>Enter your coupon code if you have</p>
+                            <form action="#" class="cuppon-form">
+                                <input type="text" />
+                                <button class="btn border-btn">apply coupon</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 col-xs-12 bag-checkout-process text-right">
+                <div class="wrap">
+                    <p><span>Subtotal</span><span>£</span></p>
+                    <h4><span>Grand total</span><span>£</span></h4>
+                    <a href="checkout.html" class="btn border-btn">process to checkout</a>
+                </div>
+                {% else %}
+                <div class="row">
+                    <div class="col">
+                <p class="lead mb-5"> Your bag is empty!</p>
+                <a href="{% url 'products' %}" class="btn btn-outline"><span>CONTINUE SHOPPING</span></a>
+                    </div>
+                </div>                {% endif %}
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+							
+{% endblock %}
