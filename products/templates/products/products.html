@@ -28,13 +28,9 @@
                         <li><span>{{ product.name }}</span></li>
                     </ul>					
                 </div>	
-                    
-            
-                
             </div>
         </div>
     </div>
-    
     
     <!-- Shop Product Area -->
     <div class="shop_page_area">
@@ -44,18 +40,6 @@
                     <div class="col-sm-6 col-xs-12 short_by_area">
                         <div class="short_by_inner">
                             <label>sort by:</label>
-                            <ul class="sort-select">
-                                <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=desc">Price High - Low</a></li>
-                            <li class="nav-item"><a href="{% url 'products' %}?sort=price&direction=asc">Price Low - High</a></li>
-                            <li class="nav-item"><a href="{% url 'products' %}?sort=rating&direction=desc">By Rating</a></li>
-                            <li class="nav-item"><a href="{% url 'products' %}?sort=category&direction=asc">By Category</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-sm-6 col-xs-12 show_area">
-                        <div class="show_inner">
-                            <label>show:</label>
                             <select class="show-select">
                                 <option>8</option>
                                 <option>12</option>
@@ -63,7 +47,31 @@
                                 <option>ALL</option>
                             </select>
                         </div>
+
+
+                    <div class="col-sm-6 col-xs-12 show_area">
+                        <div class="show_inner">
+                            <label>Sort:</label>
+                            <select class="show-select">
+                                <option value="reset" {% if sorting_by == 'None_None' %}selected{% endif %}>Sort</option>
+                                <option value="price_asc" {% if sorting_by == 'price_asc' %}selected{% endif %}>Price Low to High</option>
+                                <option value="price_desc" {% if sorting_by == 'price_desc' %}selected{% endif %}>Price High to Low</option>
+                                <option value="rating_desc" {% if sorting_by == 'rating_desc' %}selected{% endif %}>Rating High to Low</option>
+                                <option value="rating_asc" {% if sorting_by == 'rating_asc' %}selected{% endif %}>Rating Low to High</option>
+                                <option value="category_asc" {% if sorting_by == 'category_asc' %}selected{% endif %}>Category A-Z</option>
+                                <option value="category_desc" {% if sorting_by == 'category_desc' %}selected{% endif %}>Category Z-A</option>
+                            </select>
+                        </div>
                     </div>
+                </div>
+                <div class="col-12 col-md-6 order-md-first">
+                    <p class="text-muted mt-3 text-center text-md-left">
+                        {% if search_term or current_categories or sorting_by != 'None_None' %} 
+                        <span class="small"><a href="{% url 'products' %}"> Products Home</a> </span>
+                        {% endif %}
+                        {{ products|length }} Products{% if search_term %} found for <strong>"{{ search_term }}"</strong> 
+                        {% endif %}
+                    </p>
                 </div>
             </div>	
                 
