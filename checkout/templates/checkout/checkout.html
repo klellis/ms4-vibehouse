@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load bag_tools %}
 
 
 {% block page_header %}
@@ -71,14 +72,33 @@
                                 <div class="" id="card-element" role="alert"></div>
                                 <!-- DISPLAYS FORM ERRORS-->
                                 <div class="text-danger" id="card-errors" role="alert"></div>
-                </form>
+                            </fieldset>
+                
+                <div class="submit button">
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0">
+                        <span class="icon"><i class="fas fa-chevron-left"></i></span>
+                        <span class="font_weght_bold">Adjust Bag</span>
+                    </a>
+                    <button id="submit-button" class="btn btn-black rounded-0">
+                        <span class="font-weight-bold">Complete Order</span>
+                        <span class="icon"><i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                    <p class="small text-danger my-0">
+                        <span class="icon"> <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </div>
             </div>
+        </form>
             
 
             <div class="col">
                 <div class="title">
-                    <h3>your order</h3>
+                    <h3>Order Summary</h3>
                 </div>
+
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -87,27 +107,18 @@
                             </tr>
                         </thead>
                         <tbody>
+                            {% for item in bag_items %}
                             <tr>
-                                <td class="product-name">Pack</td>
-                                <td class="product-total"><span>$20.00</span></td>
+                                <td class="product-name">{{ item.product.name }}</td>
+                                <td class="product-total"><span>£{{ item.product.price | calc_subtotal:item.quantity }}</span></td>
+                                <td class="product-total"><span>{% if item.product.has_sizes %}{{ item.size|upper }}{% else %}N/A{% endif %}</span></td>
                             </tr>
-                            <tr>
-                                <td class="product-name">Deluxe Pack</td>
-                                <td class="product-total"><span>$80.00</span></td>
-                            </tr>
-                            <tr>
-                                <td class="product-name">Anti Mask</td>
-                                <td class="product-total"><span>$40.00</span></td>
-                            </tr>
-                            <tr class="sub-total">
-                                <td class="product-name">Sub Total</td>
-                                <td class="product-total"><span>$140.00</span></td>
-                            </tr>
+                            {% endfor %}
                         </tbody>
                         <tfoot>
                             <tr>
                                 <th>Total</th>
-                                <td><span class="amount">$140.00</span></td>
+                                <td><span class="amount">£{{ grand_total|floatformat:2 }}</span></td>
                             </tr>
                         </tfoot>
                     </table>
