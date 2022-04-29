@@ -1,6 +1,10 @@
-from django.shortcuts import render
+from django.urls import path
+from . import views
 
-# Create your views here.
+urlpatterns = [
+    path('', views.profile, name='profile'),
+]
+
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
