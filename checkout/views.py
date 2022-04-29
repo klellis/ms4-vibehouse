@@ -4,11 +4,13 @@ from django.shortcuts import (
 from django.views.decorators.http import require_POST
 from django.contrib import messages
 from django.conf import settings
-from products.models import Products
+
 from .forms import OrderForm
 from .models import Order, OrderLineItem
 
-
+from products.models import Products
+from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from bag.contexts import bag_contents
 
 import stripe
@@ -49,6 +51,7 @@ def checkout(request):
             'postcode': request.POST['postcode'],
         }
         
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -109,7 +112,6 @@ def checkout(request):
 
         # Attempt to prefill the form with any info
         # the user maintains in their profile
-
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
