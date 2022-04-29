@@ -12,6 +12,7 @@
     height: 100vh;
     position: relative;
     overflow: hidden;
+    margin-top: -3vh;
 }
 .slider .controll span {
     display: inline-block;
@@ -44,7 +45,6 @@
     height: 100vh;
     line-height: 100vh;
     padding-left: 0;
-    background: #ff9800;
     color: #fff;
 }
 .slider ol {
@@ -60,7 +60,7 @@
     cursor: pointer;
 }
 .slider ol li:hover .fa:before, .slider ol li.pointer-active .fa:before {
-    content: "\f111";
+    
     font-family: FontAwesome;
 }
 
