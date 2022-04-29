@@ -22,7 +22,7 @@
                 <i class="bx bx-menu icon-single"></i>
             </button>
 
-    <a class="navbar-brand" href="#">
+    <a href="{% url 'home' %}" class="navbar-brand" href="#">
       <h4 class="font-weight-bold">VIBEHOUSE</h4>
     </a>
 
@@ -57,7 +57,7 @@
                     {% if request.user.is_superuser %}
                         <a href="" class="dropdown-item">Product Management</a>
                     {% endif %}
-                    <a href="" class="dropdown-item">My Profile</a>
+                    <a href="" class="{% url 'profile' %}">My Profile</a>
                     <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                 {% else %}
                     <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
@@ -84,8 +84,9 @@
 
   </div>
 </nav>
-
-<nav class="navbar navbar-expand-md navbar-light bg-light mega-menu">
+<div id="page_item_area">
+  <div class="container">
+<nav class="navbar navbar-expand-md navbar-light bg-ligh mega-menu">
   <div class=container>
     <div class="navbar-collapse product_dropdown" id="navbar">
   <li class="dropdown nav-item">
@@ -102,7 +103,6 @@
   </li>
   </div>
   </div>
-
   <div class=container>
     <div class="navbar-collapse product_dropdown" id="navbar">
   <li class="dropdown nav-item">
@@ -116,7 +116,8 @@
   </div>
   </div>
   </nav>
-  
+  </div>
+</div>
 
    				
 
