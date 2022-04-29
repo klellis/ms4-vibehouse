@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.conf import settings
 
 from .forms import OrderForm
+from bag.contexts import bag_items
 
+import stripe
 # Create your views here.
 
 #checks if bag is empty before directing to checkout if not triggers a toast error message
@@ -11,6 +14,10 @@ def checkout(request):
     if not bag:
         messages.error(request, "Oops! There's nothing in your bag right now")
         return redirect('products')
+    
+    current_bag = bag_items(request)
+    total = current_bag['grand_total']
+    stripe_total = round(total * 100)
     
     order_form = OrderForm()
     template = 'checkout/checkout.html'
