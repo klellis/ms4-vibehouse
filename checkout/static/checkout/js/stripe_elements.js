@@ -68,13 +68,12 @@ form.addEventListener('submit', function(ev) {
                         line1: $.trim(form.street_address1.value),
                         line2: $.trim(form.street_address2.value),
                         city: $.trim(form.town_or_city.value),
-                        postcode: $.trim(form.postcode.value),
+                        postal_code: $.trim(form.postcode.value),
                     }
                 }
             },
             shipping: {
                 name: $.trim(form.full_name.value),
-                phone: $.trim(form.phone_number.value),
                 address: {
                     line1: $.trim(form.street_address1.value),
                     line2: $.trim(form.street_address2.value),
