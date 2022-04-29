@@ -8,11 +8,10 @@ from django_countries.fields import CountryField
 
 class UserProfile(models.Model):
     """
-    A user profile model for maintaining default
-    delivery information and order history
+    below means user can only have one profile and profile attached to one user, plus delivery info fields
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    default_phone_number = models.CharField(max_length=20,
+    default_email = models.CharField(max_length=20,
                                             null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80,
                                                null=True, blank=True)
