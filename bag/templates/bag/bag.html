@@ -78,18 +78,6 @@
                         </div>
                     </div>
                     
-                    <div class="col-sm-5">
-                        <div class="cuppon-wrap">
-                            <h4>Discount Code</h4>
-                            <p>Enter your coupon code if you have</p>
-                            <form action="#" class="cuppon-form">
-                                <input type="text" />
-                                <button class="btn border-btn">apply coupon</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
             <div class="col-md-4 col-xs-12 bag-checkout-process text-right">
                 <div class="wrap">
@@ -101,7 +89,7 @@
                         Spend another <strong>£{{ free_delivery_increment }}</strong> to be eligible for free Next Day Delivery within the UK
                     </p>
                     {% endif %}
-                    <a href="checkout.html" class="btn border-btn">process to checkout</a>
+                    <a href="{% url 'checkout' %}" class="btn border-btn">CHECKOUT</a>
                 </div>
                 {% else %}
                 <div class="row">
