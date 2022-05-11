@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-fgq$-wr_&c&hx=%k(2un#rfek2q9heui*1@-rwmbj=*vxo2rmv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ms4-vibehouse.herokuapp.com', 'localhost']
 
 
 # Application definition

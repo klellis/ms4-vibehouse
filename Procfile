@@ -1,0 +1,1 @@
+web: gunicorn vibehouse.wsgi:application
