@@ -130,44 +130,16 @@
                     </div>
                
                     <!-- Product Action -->
-                    <div class="pd_btn fix">
+                    <div class="pd_btn fix bag_btn">
                         <input class="btn btn-default acc_btn btn_icn" type="submit" value="Add to Bag">
-                        <a class="btn btn-default acc_btn btn_icn"><i class="fa fa-heart"></i></a>
-                        <a class="btn btn-default acc_btn btn_icn"><i class="fa fa-refresh"></i></a>
                         <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         {% endwith %}
                     </div>
                     
                 </form>
-                    <div class="pd_share_area fix">
-                        <h4>share this on:</h4>
-                        <div class="pd_social_icon">
-                            <a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-                            <a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-                            <a class="vimeo" href="#"><i class="fa fa-vimeo"></i></a>
-                            <a class="google_plus" href="#"><i class="fa fa-google-plus"></i></a>
-                            <a class="tumblr" href="#"><i class="fa fa-tumblr"></i></a>
-                            <a class="pinterest" href="#"><i class="fa fa-pinterest"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="row">
-            <div class="col-xs-12">					
-                <div class="pd_tab_area fix">									
-                    <ul class="pd_tab_btn nav nav-tabs" role="tablist">
-                      <li>
-                        <a class="active" href="#description" role="tab" data-toggle="tab">Description</a>
-                      </li>
-                      <li>
-                        <a href="#information" role="tab" data-toggle="tab">Information</a>
-                      </li>
-                      <li>
-                        <a href="#reviews" role="tab" data-toggle="tab">Reviews</a>
-                      </li>
-                    </ul>
+
+    
+    
 
     
 {% endblock %}
